@@ -69,7 +69,7 @@ public class RadioTest {
     public void soundVolumeAboveMax() {
         Radio vol = new Radio();
 
-        vol.setSoundVolume(104);
+        vol.setSoundVolume(102);
 
         int expected = 0;
         int actual = vol.getSoundVolume();
