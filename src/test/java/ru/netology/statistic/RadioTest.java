@@ -71,7 +71,7 @@ public class RadioTest {
 
         vol.setSoundVolume(102);
 
-        int expected = 0;
+        int expected = 100;
         int actual = vol.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
