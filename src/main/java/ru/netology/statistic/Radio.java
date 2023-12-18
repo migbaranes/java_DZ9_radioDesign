@@ -41,7 +41,7 @@ public class Radio {
             return;
         }
         if (newSoundVolume > 100) {
-            return;
+            newSoundVolume = 100;
         }
         soundVolume = newSoundVolume;
     }
