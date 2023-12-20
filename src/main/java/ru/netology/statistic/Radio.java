@@ -4,6 +4,21 @@ public class Radio {
     private int currentRadioStationNumber;
     private int soundVolume;
 
+
+    public int nextStationNumber() {
+        if (currentRadioStationNumber < 9) {
+            currentRadioStationNumber = currentRadioStationNumber + 1;
+        }
+        return currentRadioStationNumber;
+    }
+
+    public int prevVolume() {
+        if (soundVolume < 100) {
+            soundVolume = soundVolume - 1;
+        }
+        return soundVolume;
+    }
+
     public void setMaxNumbStation() {
         currentRadioStationNumber = 9;
     }
@@ -26,12 +41,6 @@ public class Radio {
         currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
-
-    //    public void increaseVolume() {
-//        if (soundVolume < 100) {
-//            soundVolume = soundVolume + 1;
-//        }
-//    }
     public int getSoundVolume() {
         return soundVolume;
     }

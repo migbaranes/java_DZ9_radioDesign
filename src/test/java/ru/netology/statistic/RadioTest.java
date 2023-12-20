@@ -18,6 +18,51 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldNextStationNumber() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStationNumber(5);
+
+        int expected = 6;
+        int actual = rad.nextStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNextStationAboveMaxNumber() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStationNumber(9);
+
+        int expected = 9;
+        int actual = rad.nextStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldPrevVolume() {
+        Radio rad = new Radio();
+
+        rad.setSoundVolume(98);
+
+        int expected = 97;
+        int actual = rad.prevVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldPrevAboveMaxVolume() {
+        Radio rad = new Radio();
+
+        rad.setSoundVolume(101);
+
+        int expected = 100;
+        int actual = rad.prevVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
     public void shouldRadioStationAboveMaxNumber() {
         Radio rad = new Radio();
 
