@@ -12,9 +12,29 @@ public class Radio {
         return currentRadioStationNumber;
     }
 
-    public int prevVolume() {
+    public int prevStationNumber() {
+        if (currentRadioStationNumber < 9) {
+            currentRadioStationNumber = currentRadioStationNumber - 1;
+        }
+        if (currentRadioStationNumber < 0) {
+            currentRadioStationNumber = 0;
+        }
+        return currentRadioStationNumber;
+    }
+
+    public int upVolume() {
+        if (soundVolume < 100) {
+            soundVolume = soundVolume + 1;
+        }
+        return soundVolume;
+    }
+
+    public int downVolume() {
         if (soundVolume < 100) {
             soundVolume = soundVolume - 1;
+        }
+        if (soundVolume < 0) {
+            soundVolume = 0;
         }
         return soundVolume;
     }

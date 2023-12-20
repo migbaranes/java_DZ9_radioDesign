@@ -42,25 +42,97 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldPrevVolume() {
+    public void shouldPrevStationNumber() {
         Radio rad = new Radio();
 
-        rad.setSoundVolume(98);
+        rad.setCurrentRadioStationNumber(5);
 
-        int expected = 97;
-        int actual = rad.prevVolume();
+        int expected = 4;
+        int actual = rad.prevStationNumber();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldPrevAboveMaxVolume() {
+    public void shouldPrevAboveMaxStationNumber() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStationNumber(9);
+
+        int expected = 9;
+        int actual = rad.prevStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldPrevLessMinStationNumber() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStationNumber(-1);
+
+        int expected = 0;
+        int actual = rad.prevStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUpVolume() {
+        Radio rad = new Radio();
+
+        rad.setSoundVolume(59);
+
+        int expected = 60;
+        int actual = rad.upVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUpAboveMaxVolume() {
+        Radio rad = new Radio();
+
+        rad.setSoundVolume(102);
+
+        int expected = 100;
+        int actual = rad.upVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldDownVolume() {
+        Radio rad = new Radio();
+
+        rad.setSoundVolume(59);
+
+        int expected = 58;
+        int actual = rad.downVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldLessMinVolume() {
+        Radio rad = new Radio();
+
+        rad.setSoundVolume(-1);
+
+        int expected = 0;
+        int actual = rad.downVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAboveMaxVolume() {
         Radio rad = new Radio();
 
         rad.setSoundVolume(101);
 
         int expected = 100;
-        int actual = rad.prevVolume();
+        int actual = rad.downVolume();
 
         Assertions.assertEquals(expected, actual);
     }
