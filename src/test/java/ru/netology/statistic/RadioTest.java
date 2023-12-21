@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio rad = new Radio(9);
 
     @Test
     public void shouldRadioStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(5);
 
@@ -19,7 +20,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(5);
 
@@ -31,7 +32,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationAboveMaxNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(9);
 
@@ -43,7 +44,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(5);
 
@@ -55,7 +56,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevAboveMaxStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(9);
 
@@ -67,7 +68,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevLessMinStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(-1);
 
@@ -79,7 +80,7 @@ public class RadioTest {
 
     @Test
     public void shouldUpVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(59);
 
@@ -91,7 +92,7 @@ public class RadioTest {
 
     @Test
     public void shouldUpAboveMaxVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(102);
 
@@ -103,7 +104,7 @@ public class RadioTest {
 
     @Test
     public void shouldDownVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(59);
 
@@ -115,7 +116,7 @@ public class RadioTest {
 
     @Test
     public void shouldLessMinVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(-1);
 
@@ -127,7 +128,7 @@ public class RadioTest {
 
     @Test
     public void shouldAboveMaxVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(101);
 
@@ -139,7 +140,7 @@ public class RadioTest {
 
     @Test
     public void shouldRadioStationAboveMaxNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(11);
 
@@ -151,7 +152,7 @@ public class RadioTest {
 
     @Test
     public void shouldRadioStationLessMinNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(-5);
 
@@ -163,7 +164,7 @@ public class RadioTest {
 
     @Test
     public void soundVolume() {
-        Radio vol = new Radio();
+        Radio vol = new Radio(9);
 
         vol.setSoundVolume(17);
 
@@ -175,7 +176,7 @@ public class RadioTest {
 
     @Test
     public void soundVolumeLessMin() {
-        Radio vol = new Radio();
+        Radio vol = new Radio(9);
 
         vol.setSoundVolume(-1);
 
@@ -187,7 +188,7 @@ public class RadioTest {
 
     @Test
     public void soundVolumeAboveMax() {
-        Radio vol = new Radio();
+        Radio vol = new Radio(9);
 
         vol.setSoundVolume(102);
 
@@ -198,21 +199,9 @@ public class RadioTest {
     }
 
 
-//    @Test
-//    public void soundVolumeAboveMax() {
-//        Radio vol = new Radio();
-//
-//        vol.setSoundVolume(101);
-//
-//        int expected = 100;
-//        int actual = vol.increaseVolume();
-//
-//        Assertions.assertEquals(expected, actual);
-//    }
-
     @Test
     public void shouldSetMaxNumbStation() {
-        Radio rad = new Radio();
+
 
         rad.setMaxNumbStation();
         int expected = 9;
@@ -223,7 +212,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetMaxSound() {
-        Radio rad = new Radio();
+
 
         rad.setMaxSound();
         int expected = 100;
