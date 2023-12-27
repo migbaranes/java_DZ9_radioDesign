@@ -6,10 +6,11 @@ public class Radio {
     private int currentRadioStationNumber;
     private int soundVolume;
 
-    public Radio () {
+    public Radio() {
         System.out.println("I'm ready for anything");
     }
-    public Radio (int desiredNumberOfRadioStations) {
+
+    public Radio(int desiredNumberOfRadioStations) {
 
     }
 

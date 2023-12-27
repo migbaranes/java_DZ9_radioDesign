@@ -271,6 +271,7 @@ public class RadioTest {
 
     @Test
     public void testRadioEmpty() {
-        Radio rad = new Radio();}
+        Radio rad = new Radio();
+    }
 
 }
