@@ -4,10 +4,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio rad = new Radio(19);
+
+    @Test
+    public void RadioStationTwentyChannels() {
+
+
+        rad.setCurrentRadioStationNumber(15);
+
+        int expected = 15;
+        int actual = rad.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldRadioStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(5);
 
@@ -17,13 +30,26 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
     @Test
     public void shouldNextStationNumber() {
-        Radio rad = new Radio();
 
-        rad.setCurrentRadioStationNumber(5);
 
-        int expected = 6;
+        rad.setCurrentRadioStationNumber(14);
+
+        int expected = 15;
+        int actual = rad.nextStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNextWhenCurrentMax() {
+
+
+        rad.setCurrentRadioStationNumber(19);
+
+        int expected = 0;
         int actual = rad.nextStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -31,11 +57,11 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationAboveMaxNumber() {
-        Radio rad = new Radio();
 
-        rad.setCurrentRadioStationNumber(9);
 
-        int expected = 9;
+        rad.setCurrentRadioStationNumber(20);
+
+        int expected = 1;
         int actual = rad.nextStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -43,7 +69,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(5);
 
@@ -53,13 +79,36 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+//    @Test
+//    public void PrevStationZero() {
+//
+//
+//        rad.setCurrentRadioStationNumber(0);
+//
+//        int expected = 20;
+//        int actual = rad.prevStationNumber();
+//
+//        Assertions.assertEquals(expected, actual);
+//    }
+
+//    @Test
+//    public void PrevStationMax() {
+//
+//        rad.setCurrentRadioStationNumber(20);
+//
+//        int expected = 20;
+//        int actual = rad.prevStationNumber();
+//
+//        Assertions.assertEquals(expected, actual);
+//    }
+
     @Test
     public void shouldPrevAboveMaxStationNumber() {
-        Radio rad = new Radio();
 
-        rad.setCurrentRadioStationNumber(9);
 
-        int expected = 9;
+        rad.setCurrentRadioStationNumber(25);
+
+        int expected = 20;
         int actual = rad.prevStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -67,11 +116,11 @@ public class RadioTest {
 
     @Test
     public void shouldPrevLessMinStationNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(-1);
 
-        int expected = 0;
+        int expected = 20;
         int actual = rad.prevStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -79,7 +128,7 @@ public class RadioTest {
 
     @Test
     public void shouldUpVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(59);
 
@@ -91,7 +140,7 @@ public class RadioTest {
 
     @Test
     public void shouldUpAboveMaxVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(102);
 
@@ -103,7 +152,7 @@ public class RadioTest {
 
     @Test
     public void shouldDownVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(59);
 
@@ -115,7 +164,7 @@ public class RadioTest {
 
     @Test
     public void shouldLessMinVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(-1);
 
@@ -127,7 +176,7 @@ public class RadioTest {
 
     @Test
     public void shouldAboveMaxVolume() {
-        Radio rad = new Radio();
+
 
         rad.setSoundVolume(101);
 
@@ -139,9 +188,9 @@ public class RadioTest {
 
     @Test
     public void shouldRadioStationAboveMaxNumber() {
-        Radio rad = new Radio();
 
-        rad.setCurrentRadioStationNumber(11);
+
+        rad.setCurrentRadioStationNumber(21);
 
         int expected = 0;
         int actual = rad.getCurrentRadioStationNumber();
@@ -151,7 +200,7 @@ public class RadioTest {
 
     @Test
     public void shouldRadioStationLessMinNumber() {
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadioStationNumber(-5);
 
@@ -163,7 +212,7 @@ public class RadioTest {
 
     @Test
     public void soundVolume() {
-        Radio vol = new Radio();
+        Radio vol = new Radio(9);
 
         vol.setSoundVolume(17);
 
@@ -175,7 +224,7 @@ public class RadioTest {
 
     @Test
     public void soundVolumeLessMin() {
-        Radio vol = new Radio();
+        Radio vol = new Radio(9);
 
         vol.setSoundVolume(-1);
 
@@ -187,7 +236,7 @@ public class RadioTest {
 
     @Test
     public void soundVolumeAboveMax() {
-        Radio vol = new Radio();
+        Radio vol = new Radio(9);
 
         vol.setSoundVolume(102);
 
@@ -198,24 +247,12 @@ public class RadioTest {
     }
 
 
-//    @Test
-//    public void soundVolumeAboveMax() {
-//        Radio vol = new Radio();
-//
-//        vol.setSoundVolume(101);
-//
-//        int expected = 100;
-//        int actual = vol.increaseVolume();
-//
-//        Assertions.assertEquals(expected, actual);
-//    }
-
     @Test
     public void shouldSetMaxNumbStation() {
-        Radio rad = new Radio();
+
 
         rad.setMaxNumbStation();
-        int expected = 9;
+        int expected = 20;
         int actual = rad.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -223,7 +260,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetMaxSound() {
-        Radio rad = new Radio();
+
 
         rad.setMaxSound();
         int expected = 100;
@@ -232,5 +269,9 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testRadioEmpty() {
+        Radio rad = new Radio();
+    }
 
 }
