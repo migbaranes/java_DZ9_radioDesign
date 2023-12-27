@@ -2,10 +2,13 @@ package ru.netology.statistic;
 
 public class Radio {
 
-    private int desiredNumberOfRadioStations = 9;
+    private int desiredNumberOfRadioStations = 19;
     private int currentRadioStationNumber;
     private int soundVolume;
 
+    public Radio () {
+        System.out.println("I'm ready for anything");
+    }
     public Radio (int desiredNumberOfRadioStations) {
 
     }
@@ -14,15 +17,18 @@ public class Radio {
         if (currentRadioStationNumber < desiredNumberOfRadioStations) {
             currentRadioStationNumber = currentRadioStationNumber + 1;
         }
+        if (currentRadioStationNumber >= desiredNumberOfRadioStations) {
+            currentRadioStationNumber = 0;
+        }
         return currentRadioStationNumber;
     }
 
     public int prevStationNumber() {
-        if (currentRadioStationNumber < desiredNumberOfRadioStations) {
+        if (currentRadioStationNumber <= desiredNumberOfRadioStations) {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
         if (currentRadioStationNumber < 0) {
-            currentRadioStationNumber = 0;
+            currentRadioStationNumber = desiredNumberOfRadioStations + 1;
         }
         return currentRadioStationNumber;
     }
@@ -45,7 +51,7 @@ public class Radio {
     }
 
     public void setMaxNumbStation() {
-        currentRadioStationNumber = desiredNumberOfRadioStations;
+        currentRadioStationNumber = desiredNumberOfRadioStations + 1;
     }
 
     public void setMaxSound() {
